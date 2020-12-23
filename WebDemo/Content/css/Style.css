@@ -1,0 +1,14 @@
+﻿body {
+
+}
+.ribbon{
+    width: 100%;
+    height:60px;
+    background-color:cornflowerblue;
+}
+.tableData{
+    margin-top:50px;
+}
+.mlinput{
+    margin-left:10px
+}

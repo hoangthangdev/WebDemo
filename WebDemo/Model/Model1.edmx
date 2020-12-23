@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SQL_DbDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DepositPayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionCode" Type="varchar" MaxLength="50" />
+          <Property Name="Currency" Type="varchar" MaxLength="10" />
+          <Property Name="DepositAmount" Type="varchar" MaxLength="100" />
+          <Property Name="Reference" Type="varchar" MaxLength="250" />
+          <Property Name="Supplement" Type="varchar" MaxLength="50" />
+          <Property Name="CreditCard" Type="varchar" MaxLength="50" />
+          <Property Name="ExpDate" Type="date" />
+          <Property Name="ReservationType" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="New">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionDate" Type="date" />
+          <Property Name="Descriptoion" Type="nvarchar(max)" />
+          <Property Name="SendDate" Type="date" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="Finde" Type="nvarchar" MaxLength="50" />
+          <Property Name="Receiver" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityContainer Name="SQL_DbDemoModelStoreContainer">
+          <EntitySet Name="DepositPayment" EntityType="Self.DepositPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="New" EntityType="Self.New" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SQL_DbDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SQL_DbDemoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DepositPayments" EntityType="SQL_DbDemoModel.DepositPayment" />
+          <EntitySet Name="News" EntityType="SQL_DbDemoModel.New" />
+        </EntityContainer>
+        <EntityType Name="DepositPayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Currency" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DepositAmount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Reference" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Supplement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExpDate" Type="DateTime" Precision="0" />
+          <Property Name="ReservationType" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="New">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="0" />
+          <Property Name="Descriptoion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SendDate" Type="DateTime" Precision="0" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Finde" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SQL_DbDemoModelStoreContainer" CdmEntityContainer="SQL_DbDemoEntities">
+          <EntitySetMapping Name="DepositPayments">
+            <EntityTypeMapping TypeName="SQL_DbDemoModel.DepositPayment">
+              <MappingFragment StoreEntitySet="DepositPayment">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReservationType" ColumnName="ReservationType" />
+                <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+                <ScalarProperty Name="CreditCard" ColumnName="CreditCard" />
+                <ScalarProperty Name="Supplement" ColumnName="Supplement" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="DepositAmount" ColumnName="DepositAmount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="SQL_DbDemoModel.New">
+              <MappingFragment StoreEntitySet="New">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="Finde" ColumnName="Finde" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+                <ScalarProperty Name="Descriptoion" ColumnName="Descriptoion" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

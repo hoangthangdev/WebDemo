@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SQL_DbDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DepositPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionCode" Type="varchar" MaxLength="50" />
+    <Property Name="Currency" Type="varchar" MaxLength="10" />
+    <Property Name="DepositAmount" Type="varchar" MaxLength="100" />
+    <Property Name="Reference" Type="varchar" MaxLength="250" />
+    <Property Name="Supplement" Type="varchar" MaxLength="50" />
+    <Property Name="CreditCard" Type="varchar" MaxLength="50" />
+    <Property Name="ExpDate" Type="date" />
+    <Property Name="ReservationType" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="New">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDate" Type="date" />
+    <Property Name="Descriptoion" Type="nvarchar(max)" />
+    <Property Name="SendDate" Type="date" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Finde" Type="nvarchar" MaxLength="50" />
+    <Property Name="Receiver" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityContainer Name="SQL_DbDemoModelStoreContainer">
+    <EntitySet Name="DepositPayment" EntityType="Self.DepositPayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="New" EntityType="Self.New" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
